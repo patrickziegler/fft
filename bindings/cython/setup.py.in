@@ -1,0 +1,21 @@
+from setuptools import setup, Extension
+from Cython.Build import cythonize
+import numpy as np
+
+setup(
+    ext_modules = cythonize([
+        Extension(
+            "pyfft",
+            sources=["fft.pyx"],
+            include_dirs=["${CMAKE_SOURCE_DIR}/include", np.get_include()],
+            language="c++"
+            )
+        ],
+        build_dir="${CMAKE_CURRENT_BINARY_DIR}",
+        compiler_directives={"language_level": 3}
+    ),
+    name="pyfft",
+    author="Patrick Ziegler",
+    license="GPLv3",
+    version="${CMAKE_PROJECT_VERSION}"
+)
