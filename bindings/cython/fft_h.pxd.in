@@ -1,7 +1,7 @@
 cdef extern from "${CMAKE_SOURCE_DIR}/include/fft.hpp":
-    cdef void copy_bitrev(size_t n, double* in_r, double* in_i, double* out_r, double* out_i)
-    cdef void fft_dif_radix2(const size_t n, double* dr, double* di)
-    cdef void fft_dif_radix4(const size_t n, double* dr, double* di)
+    cdef void copy_bitrev(const size_t& n, const double* in_r, const double* in_i, double* out_r, double* out_i)
+    cdef void fft_dif_radix2(const size_t& n, double* dr, double* di)
+    cdef void fft_dif_radix4(const size_t& n, double* dr, double* di)
 
 cdef extern from "${CMAKE_SOURCE_DIR}/src/fft.cpp":
     pass
